@@ -30,7 +30,7 @@ object InheritFromCaseClass extends WartTraverser {
         tree match {
           // Ignore trees marked by SuppressWarnings
           case t if hasWartAnnotation(u)(t) =>
-          case d @ ClassDef(mods, _, _, _) =>
+          case d: ImplDef=>
             val c = d.symbol.asClass
             val caseBases = c.baseClasses
               .filter(_.isClass)
