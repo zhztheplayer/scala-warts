@@ -1,0 +1,12 @@
+**/target/**
+*.class
+*.iml
+
+# logs
+*.log
+
+# cache files
+*.cache
+
+# IDEA config files
+.idea/
