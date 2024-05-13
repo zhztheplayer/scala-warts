@@ -19,6 +19,9 @@ package io.github.zhztheplayer.scalawarts
 
 import org.wartremover.{WartTraverser, WartUniverse}
 
+/**
+ * Forbid a class from inheriting from a case class.
+ */
 object InheritFromCaseClass extends WartTraverser {
   override def apply(u: WartUniverse): u.Traverser = {
     import u.universe._
