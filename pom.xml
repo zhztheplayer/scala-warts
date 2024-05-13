@@ -9,6 +9,10 @@
   <version>0.1.0</version>
   <packaging>jar</packaging>
 
+  <name>scalawarts</name>
+  <url>https://github.com/zhztheplayer/scalawarts</url>
+  <description>Extended warts for https://github.com/wartremover/wartremover</description>
+
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
@@ -27,6 +31,21 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:zhztheplayer/scalawarts.git</connection>
+    <developerConnection>scm:git:git@github.com:zhztheplayer/scalawarts.git</developerConnection>
+    <url>https://github.com/zhztheplayer/scalawarts</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>zhz</id>
+      <name>Zhang Hongze</name>
+      <email>talktozhz@126.com</email>
+    </developer>
+  </developers>
 
   <issueManagement>
     <system>GitHub Issues</system>
