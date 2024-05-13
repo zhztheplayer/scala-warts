@@ -30,7 +30,7 @@
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>https://github.com/zhztheplayer/scala-warts/issues</url>
+    <url>https://github.com/zhztheplayer/scalawarts/issues</url>
   </issueManagement>
 
   <dependencies>
