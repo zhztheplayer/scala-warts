@@ -6,8 +6,8 @@
 
   <groupId>io.github.zhztheplayer.scalawarts</groupId>
   <artifactId>scalawarts</artifactId>
-  <version>0.1.1</version>
-  <packaging>jar</packaging>
+  <version>0.1.2</version>
+  <packaging>pom</packaging>
 
   <name>scalawarts</name>
   <url>https://github.com/zhztheplayer/scalawarts</url>
@@ -20,8 +20,6 @@
     <scala.compiler.version>4.8.0</scala.compiler.version>
     <maven.compiler.plugin>3.12.1</maven.compiler.plugin>
     <scala.recompile.mode>all</scala.recompile.mode>
-    <scala.binary.version>2.12</scala.binary.version>
-    <scala.version>2.12.15</scala.version>
   </properties>
 
   <licenses>
@@ -52,20 +50,26 @@
     <url>https://github.com/zhztheplayer/scalawarts/issues</url>
   </issueManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>${scala.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.wartremover</groupId>
-      <artifactId>wartremover_${scala.binary.version}</artifactId>
-      <version>3.1.6</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
+  <profiles>
+    <profile>
+      <id>scala-2.12</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>scala-2.12</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>scala-2.13</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>scala-2.13</module>
+      </modules>
+    </profile>
+  </profiles>
   <build>
     <plugins>
       <plugin>
@@ -125,38 +129,42 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>scala-maven-plugin</artifactId>
-        <version>${scala.compiler.version}</version>
-        <configuration>
-          <recompileMode>${scala.recompile.mode}</recompileMode>
-          <args>
-            <arg>-Wconf:msg=While parsing annotations in:silent</arg>
-            <arg>-Ywarn-unused:imports</arg>
-            <arg>-Xfatal-warnings</arg>
-            <arg>-deprecation</arg>
-            <arg>-feature</arg>
-          </args>
-        </configuration>
-        <executions>
-          <execution>
-            <id>scala-compile-first</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>add-source</goal>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>scala-test-compile-first</id>
-            <phase>process-test-resources</phase>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${scala.compiler.version}</version>
+          <configuration>
+            <recompileMode>${scala.recompile.mode}</recompileMode>
+            <args>
+              <arg>-Wconf:msg=While parsing annotations in:silent</arg>
+              <arg>-Ywarn-unused:imports</arg>
+              <arg>-Xfatal-warnings</arg>
+              <arg>-deprecation</arg>
+              <arg>-feature</arg>
+            </args>
+          </configuration>
+          <executions>
+            <execution>
+              <id>scala-compile-first</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>add-source</goal>
+                <goal>compile</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>scala-test-compile-first</id>
+              <phase>process-test-resources</phase>
+              <goals>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>

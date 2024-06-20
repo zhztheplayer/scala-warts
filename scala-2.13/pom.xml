@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>io.github.zhztheplayer.scalawarts</groupId>
+    <artifactId>scalawarts</artifactId>
+    <version>0.1.2</version>
+  </parent>
+  <artifactId>scalawarts_2.13</artifactId>
+  <name>Scalawarts for Scala 2.13</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <scala.binary.version>2.13</scala.binary.version>
+    <scala.version>2.13.12</scala.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.wartremover</groupId>
+      <artifactId>wartremover_${scala.binary.version}</artifactId>
+      <version>3.1.6</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
