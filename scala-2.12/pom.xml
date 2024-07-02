@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.github.zhztheplayer.scalawarts</groupId>
     <artifactId>scalawarts</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
   </parent>
   <artifactId>scalawarts_2.12</artifactId>
   <name>Scalawarts for Scala 2.12</name>

@@ -4,6 +4,6 @@ Extended warts for https://github.com/wartremover/wartremover.
 <dependency>
   <groupId>io.github.zhztheplayer.scalawarts</groupId>
   <artifactId>scalawarts_2.12</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
 </dependency>
 ```
